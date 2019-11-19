@@ -36,3 +36,22 @@
 :~$ git commit -m 'Initial commit of Angular CLI shell app'
 :~$ git remote add origin YOUR_GIT_REPO_ADDRESS_HERE
 :~$ git push origin master
+
+// create user login and home components
+//
+// We use a components directory for cleaner architecture
+// We specify app as the module to avoid confusion with the material module
+:~$ ng g c components/user/home --module app
+:~$ ng g c components/user/login --module app
+
+// add barrel files for easier imports
+:~$ touch angular/app/components/user/home/index.ts
+// add code to .../home/index.ts
+:~$ touch angular/app/components/user/login/index.ts
+// add code to .../login/index.ts
+
+// edit app.component.html
+
+// check that routing works correctly
+:~$ ng serve
+
