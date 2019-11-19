@@ -37,6 +37,8 @@
 :~$ git remote add origin YOUR_GIT_REPO_ADDRESS_HERE
 :~$ git push origin master
 
+// ========================================================================================
+
 // create user login and home components
 //
 // We use a components directory for cleaner architecture
@@ -55,3 +57,58 @@
 // check that routing works correctly
 :~$ ng serve
 
+// commit and push
+:~$ git add .
+:~$ git commit -m 'Add user login and home components and routes'
+:~$ git push origin master
+
+// ========================================================================================
+
+// fake backend server for development
+:~$ mkdir angular/app/shared
+:~$ touch angular/app/shared/fake.server.ts
+// add code to angular/app/shared/fake.server.ts
+// add barrel files for easier imports
+:~$ touch angular/app/shared/index.ts
+// add code to angular/apps/shared/index.ts
+
+// add app.config.json to store our app config
+:~$ touch app.config.json
+// add apiUrl property and value to app.config.json
+// import app.config.json to app/environments/environment.ts and add apiUrl property
+// import app.config.json to app/environments/environment.prod.ts and add apiUrl property
+// edit tsconfig.json to add paths property
+// edit tsconfig.json to add resolveJsonModule and esModuleInterop properties
+
+// create authentication service
+:~$ mkdir angular/app/services
+:~$ touch angular/app/services/authentication.service.ts
+// add barrel files for easier imports
+:~$ touch angular/app/services/index.ts
+// add code to angular/apps/services/index.ts
+
+// edit angular/app/app.module.ts to import and declare ReactiveFormsModule and HttpClientModule
+// edit angular/app/components/user/login/login.component.ts to add form logic
+// edit angular/app/components/user/login/login.component.html to add form html
+// edit angular/app/app.component.ts to subscribe to AuthenticationService
+
+// add authorization guards to routes
+:~$ touch angular/app/shared/auth.guard.ts
+// add code to angular/app/shared/auth.guard.ts
+
+// add json web token interceptor
+:~$ touch angular/app/shared/jwt.interceptor.ts
+// add code to angular/app/shared/jwt.interceptor.ts
+
+// add error interceptor
+:~$ touch angular/app/shared/error.interceptor.ts
+// add code to angular/app/shared/error.interceptor.ts
+
+// add auth.guard, jwt.interceptor, and error.interceptor exports in angular/app/shared/index.ts
+
+// edit /src/app/app.module.ts to import and provide jwtInterceptor and ErrorInterceptor
+
+// commit and push
+:~$ git add .
+:~$ git commit -m 'add login form, authentication service & route guard'
+:~$ git push origin master
