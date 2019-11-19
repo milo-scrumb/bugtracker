@@ -1,0 +1,38 @@
+// This is  guide to creating this project
+// to follow along, first open a command line terminal
+//
+// wherever you see the generic command prompt in the guide (:~$)
+// enter the commands exactly as listed if using Linux
+// for other OS, slight variations may be required
+// Sections in ALL_CAPS indicate that you need to enter your specific data
+//
+// options are presented in comment format, like this exact line (line #9)
+//
+// this guide assumes you have the following already installed
+//
+// Node > 10.0
+// Angular CLI > 8.0
+// MongoDB > 3.2 (or an Atlas account, which is preferred.  If on public wifi, Atlas prob wont work for you)
+//
+// and that you have an account and empty repository ready at github.com
+
+// from parent directory
+:~$ ng new bugtracker
+// select 'Y' to routing
+// select 'SCSS' for styling
+
+:~$ cd bugtracker
+
+// create this file
+:~$ touch  inception.txt
+
+// rename src/ directory to angular
+:~$ mv src/ angular/
+// edit angular.json, package.json, and tsconfig.app.json
+//   to reflect changes from src/ to angular/
+
+// set up git version control
+:~$ git add .
+:~$ git commit -m 'Initial commit of Angular CLI shell app'
+:~$ git remote add origin YOUR_GIT_REPO_ADDRESS_HERE
+:~$ git push origin master
