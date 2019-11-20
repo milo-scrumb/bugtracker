@@ -11,12 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // used to create fake backend
 import { fakeBackendProvider } from './shared';
+import { RegisterComponent } from './components/user/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     AppRoutingModule,

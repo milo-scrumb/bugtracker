@@ -112,3 +112,21 @@
 :~$ git add .
 :~$ git commit -m 'add login form, authentication service & route guard'
 :~$ git push origin master
+
+// ========================================================================================
+
+// create component to register user
+:~$ ng g c components/user/register --module app
+
+// update angular/app/shared/fake.server.ts to use local storage for users
+
+// create user service
+:~$ touch angular/app/services/user.service.ts
+// add code to angular/app/services/user.service.ts
+// edit angular/app/services/index.ts to export user service
+
+// edit angular/app/components/users/register/register.component.ts
+// edit angular/app/app-routing.module.ts to add register route
+// edit angular/app/components/user/login.component.html to add link to register route
+// edit angular/app/components/user/register.component.html to add form
+
