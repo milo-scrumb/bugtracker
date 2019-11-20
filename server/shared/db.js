@@ -4,5 +4,6 @@ mongoose.connect(process.env.MONGODB_URI || config.connectionString, { useCreate
 mongoose.Promise = global.Promise
 
 module.exports = {
-    User: require('../users/user.schema')
+    User: require('../users/user.schema'),
+    Ticket: require('../tickets/ticket.schema')
 }
