@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb://localhost/bugtracker",
+    "secret": "YO, MAKE YOUR OWN SECRET!"
+}

@@ -138,3 +138,24 @@
 // ========================================================================================
 
 // update angular/app/shared/fake.server.ts
+// update angular/app/components/user/home/home.component.ts
+// update angular/app/components/user/home/home.component.html
+
+:~$ touch angular/app/shared/alert.component.ts
+// add code to angular/app/shared/alert.component.ts
+
+// commit and push
+:~$ git add .
+:~$ git commit -m 'refactor home page, add alert sevice and getUsers and deleteUser routes'
+:~$ git push origin master
+
+// ========================================================================================
+
+// add real bakend server
+:~$ npm i -S bcryptjs body-parser cors express express-jwt jsonwebtoken mongodb mongoose rootpath
+:~$ npm i -D nodemon
+
+// build base server
+:~$ mkdir server
+:~$ touch server/index.js
+
