@@ -130,3 +130,11 @@
 // edit angular/app/components/user/login.component.html to add link to register route
 // edit angular/app/components/user/register.component.html to add form
 
+// commit and push
+:~$ git add .
+:~$ git commit -m 'add registration form and user service'
+:~$ git push origin master
+
+// ========================================================================================
+
+// update angular/app/shared/fake.server.ts

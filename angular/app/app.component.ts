@@ -9,7 +9,7 @@ import { AuthenticationService } from './services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'a-bugtracker';
+  title = 'bugtracker';
   currentUser: any;
   constructor(
       private router: Router,
