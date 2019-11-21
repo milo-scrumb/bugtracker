@@ -46,4 +46,5 @@ testem.log
 Thumbs.db
 
 # private config data
-/server/server.congif.json
+/server/server.config.json
+
