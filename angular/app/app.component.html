@@ -1,8 +1,13 @@
 <!-- nav -->
-<div class="navbar-nav" *ngIf="currentUser">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-</div>
+<mat-toolbar color="primary">
+  <span>BugTracker</span>
+  <span class="fill-space"></span>
+  <button
+  *ngIf="currentUser"
+  mat-raised-button color="accent"
+  (click)="logout()">
+    Logout</button>
+</mat-toolbar>
 
 <!-- main content container -->
 <div>
