@@ -13,8 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './shared';
 import { fakeBackendProvider } from './shared';
 import { RegisterComponent } from './components/user/register/register.component';
-import { ListTicketComponent } from './components/user/home/list-ticket/list-ticket.component';
-import { CreateTicketComponent } from './components/user/home/create-ticket/create-ticket.component';
 import { AdoptTicketComponent } from './components/tech/home/adopt-ticket/adopt-ticket.component';
 import { ResolveTicketComponent } from './components/tech/home/resolve-ticket/resolve-ticket.component';
 import { InviteUserComponent } from './components/tech/home/invite-user/invite-user.component';
@@ -29,8 +27,6 @@ import { PublicComponent } from './components/public/public.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ListTicketComponent,
-    CreateTicketComponent,
     AdoptTicketComponent,
     ResolveTicketComponent,
     InviteUserComponent,
