@@ -9,9 +9,8 @@ import { JwtInterceptor, ErrorInterceptor } from './shared';
 import { LoginComponent } from './components/user/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// used to create fake backend
 import { AlertComponent } from './shared';
-import { fakeBackendProvider } from './shared';
+import { AngularMaterialModule } from './material.module';
 import { RegisterComponent } from './components/user/register/register.component';
 import { AdoptTicketComponent } from './components/tech/home/adopt-ticket/adopt-ticket.component';
 import { ResolveTicketComponent } from './components/tech/home/resolve-ticket/resolve-ticket.component';
@@ -19,6 +18,10 @@ import { InviteUserComponent } from './components/tech/home/invite-user/invite-u
 import { AssignTicketComponent } from './components/admin/home/assign-ticket/assign-ticket.component';
 import { PromoteToTechComponent } from './components/admin/home/promote-to-tech/promote-to-tech.component';
 import { PublicComponent } from './components/public/public.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// used to create fake backend
+import { fakeBackendProvider } from './shared';
 
 @NgModule({
   declarations: [
@@ -35,16 +38,18 @@ import { PublicComponent } from './components/public/public.component';
     PublicComponent
   ],
   imports: [
+    AngularMaterialModule,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // provider used to create fake backend
-    // fakeBackendProvider
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

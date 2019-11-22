@@ -151,7 +151,7 @@
 
 // ========================================================================================
 
-// add real bakend server
+// add real backend server
 :~$ npm i -S bcryptjs body-parser cors express express-jwt jsonwebtoken mongodb mongoose rootpath
 :~$ npm i -D nodemon
 
@@ -159,3 +159,25 @@
 :~$ mkdir server
 :~$ touch server/index.js
 
+// ========================================================================================
+
+// add Angular material theme
+ng add @angular/material
+
+// choose a theme (this example uses a custom theme)
+// select 'yes' to Hammer.js
+// select 'yes' to browser animations
+
+:~$ touch src/app/material.module.ts
+// add code to src/app/material.module.ts
+// edit app.module.ts
+// edit app.component.html
+// edit styles.scss
+
+
+// check that changes display correctly
+:~$ ng serve
+
+// commit changes
+:~$ git add .
+:~$ git commit -m "Add Angular material theme"
