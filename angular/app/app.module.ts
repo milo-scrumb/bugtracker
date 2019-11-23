@@ -26,6 +26,7 @@ import { TechView }                            from './components/tech';
 import { AdoptTicketComponent }                from './components/tech';
 import { InviteUserComponent }                 from './components/tech';
 import { ResolveTicketComponent }              from './components/tech';
+import { UpdateTicketComponent }               from './components/user';
 
 // used to create fake backend
 // import { fakeBackendProvider } from './shared';
@@ -49,6 +50,7 @@ import { ResolveTicketComponent }              from './components/tech';
     PromoteToTechComponent,
     RegisterComponent,
     ResolveTicketComponent,
+    UpdateTicketComponent,
   ],
   imports: [
     // alphabetized
