@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule }                           from '@angular/core';
+import { Routes, RouterModule }               from '@angular/router';
 
-import { AuthGuard } from './shared';
-import { HomeComponent } from './components/user/home/home.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { RegisterComponent } from './components/user/register/register.component';
+import { AuthGuard }                          from './shared';
+
+import { LoginComponent }                      from './components/public';
+import { UserView }                            from './components/user';
+import { RegisterComponent }                   from './components/user';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: UserView, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     // otherwise redirect to home
