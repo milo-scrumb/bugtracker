@@ -1,26 +1,41 @@
-<h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
+<div class="form-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+      <input matInput type="text"
+        placeholder="Username"
+        formControlName="username"
+        class="form-control"
+      />
+          <div *ngIf="submitted && f.username.errors" class="  invalid-feedback">
+              <div *ngIf="f.username.errors.required">Username is   required</div>
+          </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password"
+        placeholder="Password"
+        formControlName="password"
+        class="form-control"
+      />
+          <div *ngIf="submitted && f.password.errors" class="  invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required  </div>
+          </div>
+    </mat-form-field>
+
+    <div class="form-group bottom-bar">
+      <div>
+      <button class="btn" [disabled]="loading" mat-raised-button color="accent">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm   mr-1"></span>
+          Login
+      </button>
+      </div>
+      <div >
+      <button class="btn" [disabled]="loading" mat-raised-button color="accent"  routerLink="/register">
+          Register
+      </button>
+      </div>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" mat-raised-button color="accent">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Login
-        </button>
-        <button [disabled]="loading" mat-raised-button color="accent"routerLink="/register">
-            Register
-        </button>
-    </div>
-</form>
+  </form>
+</div>

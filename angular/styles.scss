@@ -12,11 +12,19 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$bugtracker-primary: mat-palette($mat-indigo);
-$bugtracker-accent: mat-palette($mat-pink, A200, A100, A400);
 
-// The warn palette is optional (defaults to red).
-$bugtracker-warn: mat-palette($mat-red);
+$primary-color: #5d4037;
+$secondary-color: #1b5e20;
+
+$bugtracker-primary: mat-palette($mat-brown, 700, 300, 900);
+$bugtracker-accent: mat-palette($mat-green, 900, 700);
+$bugtracker-warn: mat-palette($mat-red, 600);
+
+$bugtracker-theme: mat-light-theme(
+  $bugtracker-primary,
+  $bugtracker-accent,
+  $bugtracker-warn
+);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $bugtracker-theme: mat-light-theme($bugtracker-primary, $bugtracker-accent, $bugtracker-warn);
@@ -26,7 +34,42 @@ $bugtracker-theme: mat-light-theme($bugtracker-primary, $bugtracker-accent, $bug
 // that you are using.
 @include angular-material-theme($bugtracker-theme);
 
+
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-container {
+  margin: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  border-style: solid;
+  border-color: $secondary-color;
+  border-width: .5rem;
+}
+
+.bottom-bar {
+  margin: .5rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
+  background-color: $primary-color;
+}
+
+.btn{
+  margin: .5rem;
+  padding: .5rem;
+  width: 5rem;
+  text-align: center;
+}
