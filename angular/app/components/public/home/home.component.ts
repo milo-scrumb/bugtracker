@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class AdminView implements OnInit {
+export class PublicView implements OnInit {
 
   constructor() { }
 

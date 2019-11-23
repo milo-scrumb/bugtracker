@@ -9,7 +9,7 @@ import { UserService, AuthenticationService } from '../../../services';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
+export class UserView implements OnInit {
     currentUser: any;
     users = [];
 
