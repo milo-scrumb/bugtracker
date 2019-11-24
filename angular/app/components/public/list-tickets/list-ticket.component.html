@@ -14,7 +14,7 @@
 	  </mat-card-content>
 	  <mat-card-footer class="card-footer">
 	  	<div>Status: {{ticket.status}}</div>
-      <div *ngIf="ticket.tech">Assigned tech: cket.tech.username}}</div>
+      <div *ngIf="ticket.tech">Assigned tech: {{ticket.tech.username}}</div>
       <div *ngIf="!ticket.tech">Assigned tech: pending</div>
 	  </mat-card-footer>
       <mat-card-actions>
@@ -24,7 +24,8 @@
           Edit
         </button>
         <button class="btn"
-          mat-raised-button color="warn">
+          mat-raised-button color="warn"
+          (click)="openConfirmDialog()">
           Delete
         </button>
       </mat-card-actions>

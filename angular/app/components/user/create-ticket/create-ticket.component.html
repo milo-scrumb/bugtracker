@@ -36,6 +36,9 @@
           <span *ngIf="loading" class="spinner-border spinner-border-sm   mr-1"></span>
             Create Ticket
         </button>
+        <button [disabled]="loading" mat-raised-button color="warn" routerLink="/login">
+            Cancel
+        </button>
       </div>
     </form>
   </div>

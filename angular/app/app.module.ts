@@ -10,7 +10,8 @@ import { AppComponent }                        from './app.component';
 import { AppRoutingModule }                    from './app-routing.module';
 import { AngularMaterialModule }               from './material.module';
 import { AlertComponent }                      from './shared';
-import { JwtInterceptor, ErrorInterceptor }    from './shared';
+import { ErrorInterceptor }                    from './shared';
+import { JwtInterceptor }                      from './shared';
 
 // component imports
 import { AdminView }                           from './components/admin';
@@ -22,11 +23,12 @@ import { LoginComponent }                      from './components/public';
 import { UserView }                            from './components/user';
 import { CreateTicketComponent }               from './components/user';
 import { RegisterComponent }                   from './components/user';
+import { UpdateTicketComponent }               from './components/user';
 import { TechView }                            from './components/tech';
 import { AdoptTicketComponent }                from './components/tech';
 import { InviteUserComponent }                 from './components/tech';
 import { ResolveTicketComponent }              from './components/tech';
-import { UpdateTicketComponent }               from './components/user';
+import { ConfirmDialogComponent }              from './components/shared';
 
 // used to create fake backend
 // import { fakeBackendProvider } from './shared';
@@ -43,6 +45,7 @@ import { UpdateTicketComponent }               from './components/user';
     AlertComponent,
     AppComponent,
     AssignTicketComponent,
+    ConfirmDialogComponent,
     CreateTicketComponent,
     InviteUserComponent,
     ListTicketComponent,
@@ -67,6 +70,7 @@ import { UpdateTicketComponent }               from './components/user';
     // provider used to create fake backend
     // fakeBackendProvider
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }
