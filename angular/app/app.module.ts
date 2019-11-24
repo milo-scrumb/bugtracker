@@ -20,7 +20,7 @@ import { PublicView }                          from './components/public';
 import { ListTicketComponent }                 from './components/public';
 import { LoginComponent }                      from './components/public';
 import { UserView }                            from './components/user';
-import { CreateTicketComponent }                   from './components/user';
+import { CreateTicketComponent }               from './components/user';
 import { RegisterComponent }                   from './components/user';
 import { TechView }                            from './components/tech';
 import { AdoptTicketComponent }                from './components/tech';

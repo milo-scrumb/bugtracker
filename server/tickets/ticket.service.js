@@ -20,7 +20,7 @@ async function getById(id) {
     return await Ticket.findById(id)
 }
 
-// creating ticket 
+// creating ticket
 // TODO: will add validation user later, also the user ID cant be captured for now, but the schema is ok
 async function create(ticketParam) {
     const ticket = new Ticket(ticketParam)

@@ -1,9 +1,23 @@
-<h1>Hi {{currentUser.firstName}}!</h1>
-<p>You're logged in with Angular 8!!</p>
-<h3>All registered users:</h3>
-<ul>
-    <li *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-    </li>
-</ul>
+<div class="view">
+  <h5>Hi {{currentUser.firstName}} {{currentUser.lastName}}!</h5>
+  <h3>List of all Tickets:</h3>
+    <div *ngFor="let ticket of tickets">
+    	<mat-card class="ticket-card">
+          <mat-card-title-group class="card-header">
+            <mat-card-title>
+            	{{ticket.issue}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              Opened by: {{ticket.author.username}} at {{ticket.created}}
+            </mat-card-subtitle>
+          </mat-card-title-group>
+    	  <mat-card-content>
+    	  	{{ticket.description}}
+    	  </mat-card-content>
+    	  <mat-card-footer class="card-footer">
+    	  	<div>Status: {{ticket.status}}</div>
+    	  	<div>Assigned tech: {{ticket.tech.username}}</div>
+    	  </mat-card-footer>
+    	</mat-card>
+    </div>
+</div>
