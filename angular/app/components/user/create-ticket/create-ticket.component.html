@@ -1,1 +1,42 @@
-<p>create-ticket works!</p>
+<div class="view">
+  <div class="form-container">
+    <h2>Create New Ticket</h2>
+    <form
+      [formGroup]="createTicketForm"
+      (ngSubmit)="onSubmit()">
+
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+            placeholder="Issue"
+            formControlName="issue"
+            class="form-control"
+          />
+              <div *ngIf="submitted && f.issue.errors" class="  invalid-feedback">
+                  <div *ngIf="f.issue.errors.required">Issue is required</div>
+              </div>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+            placeholder="Description"
+            formControlName="description"
+            class="form-control"
+          />
+              <div *ngIf="submitted && f.description.errors" class="  invalid-feedback">
+                <div *ngIf="f.description.errors.required">Description is required  </div>
+              </div>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group bottom-bar">
+        <button class="btn" [disabled]="loading" mat-raised-button color="accent">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm   mr-1"></span>
+            Create Ticket
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

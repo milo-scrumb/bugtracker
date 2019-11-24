@@ -2,11 +2,18 @@
 <mat-toolbar color="primary">
   <span>BugTracker</span>
   <span class="fill-space"></span>
-  <button
+  <button class="btn"
+  *ngIf="currentUser"
+  mat-raised-button color="accent"
+  routerLink="/create-ticket">
+    Create Ticket
+  </button>
+  <button class="btn"
   *ngIf="currentUser"
   mat-raised-button color="accent"
   (click)="logout()">
-    Logout</button>
+    Logout
+  </button>
 </mat-toolbar>
 
 <!-- main content container -->

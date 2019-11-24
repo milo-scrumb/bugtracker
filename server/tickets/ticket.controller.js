@@ -4,7 +4,7 @@ const ticketService = require('./ticket.service')
 
 // routes
 router.get('/', getAll)
-router.post('/', postTicket)
+router.post('/create', postTicket)
 router.get('/:id', getTicket)
 router.put('/:id', editTicket)
 router.delete('/:id', _deleteTicket)
@@ -19,6 +19,7 @@ function getAll(req, res, next) {
 }
 
 function postTicket(req, res, next) {
+    console.log('into controller')
     ticketService.create(req.body)
         .then(() => res.json({}))
         .catch(err => next(err))
