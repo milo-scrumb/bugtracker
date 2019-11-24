@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { UserService, AuthenticationService } from '../../../services';
+import { TicketService, AuthenticationService } from '../../../services';
 
 @Component({
   selector: 'app-home',
@@ -11,28 +11,28 @@ import { UserService, AuthenticationService } from '../../../services';
 
 export class UserView implements OnInit {
     currentUser: any;
-    users = [];
+    tickets = [];
 
     constructor(
         private authenticationService: AuthenticationService,
-        private userService: UserService
+        private ticketService: TicketService
     ) {
         this.currentUser = this.authenticationService.currentUserValue;
     }
 
     ngOnInit() {
-        this.loadAllUsers();
+        this.loadAllTickets();
     }
 
     deleteUser(id: number) {
-        this.userService.delete(id)
+        this.ticketService.delete(id)
             .pipe(first())
-            .subscribe(() => this.loadAllUsers());
+            .subscribe(() => this.loadAllTickets());
     }
 
-    private loadAllUsers() {
-        this.userService.getAll()
+    private loadAllTickets() {
+        this.ticketService.getAll()
             .pipe(first())
-            .subscribe(users => this.users = users);
+            .subscribe(tickets => this.tickets = tickets);
     }
 }
