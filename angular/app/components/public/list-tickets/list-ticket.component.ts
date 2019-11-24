@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
+import { Component, OnInit }          from '@angular/core';
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { first }                      from 'rxjs/operators';
 
 import { TicketService, AuthenticationService } from '../../../services';
+
+import { ConfirmDialogComponent } from '../../shared';
 
 @Component({
   selector: 'app-list-ticket',
@@ -10,23 +13,28 @@ import { TicketService, AuthenticationService } from '../../../services';
 })
 export class ListTicketComponent implements OnInit {
 
-    currentUser: any;
-    tickets = [];
+  currentUser: any;
+  tickets = [];
+  constructor(
+    private authenticationService: AuthenticationService,
+    private ticketService: TicketService,
+    public dialog: MatDialog
+  ) {
+      this.currentUser = this.authenticationService.currentUserValue;
+  }
 
-    constructor(
-        private authenticationService: AuthenticationService,
-        private ticketService: TicketService
-    ) {
-        this.currentUser = this.authenticationService.currentUserValue;
-    }
-
-    ngOnInit() {
-        this.loadAllTickets();
-    }
-
-    private loadAllTickets() {
-        this.ticketService.getAll()
-            .pipe(first())
-            .subscribe(tickets => this.tickets = tickets);
-    }
+  openConfirmDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(ConfirmDialogComponent, dialogConfig);
+  }
+  ngOnInit() {
+      this.loadAllTickets();
+  }
+  private loadAllTickets() {
+      this.ticketService.getAll()
+          .pipe(first())
+          .subscribe(tickets => this.tickets = tickets);
+  }
 }
