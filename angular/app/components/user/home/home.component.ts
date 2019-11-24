@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
-
-import { TicketService, AuthenticationService } from '../../../services';
+import { AuthenticationService } from '../../../services';
+import { ListTicketComponent } from '../../public';
 
 @Component({
   selector: 'app-home',
@@ -10,29 +9,16 @@ import { TicketService, AuthenticationService } from '../../../services';
 })
 
 export class UserView implements OnInit {
-    currentUser: any;
-    tickets = [];
 
-    constructor(
-        private authenticationService: AuthenticationService,
-        private ticketService: TicketService
-    ) {
-        this.currentUser = this.authenticationService.currentUserValue;
-    }
+  currentUser: any;
 
-    ngOnInit() {
-        this.loadAllTickets();
-    }
+  constructor(
+      private authenticationService: AuthenticationService,
+  ) {
+      this.currentUser = this.authenticationService.currentUserValue;
+  }
 
-    deleteUser(id: number) {
-        this.ticketService.delete(id)
-            .pipe(first())
-            .subscribe(() => this.loadAllTickets());
-    }
+  ngOnInit() {
+  }
 
-    private loadAllTickets() {
-        this.ticketService.getAll()
-            .pipe(first())
-            .subscribe(tickets => this.tickets = tickets);
-    }
 }
