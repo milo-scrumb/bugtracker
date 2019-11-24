@@ -12,8 +12,8 @@ export class TicketService {
         return this.http.get<any[]>(`${config.apiUrl}/tickets`);
     }
 
-    create(ticket) {
-        return this.http.post(`${config.apiUrl}/tickets/create`, ticket);
+    create(author, issue, description) {
+        return this.http.post(`${config.apiUrl}/tickets/create`, {author, issue, description});
     }
 
     delete(id) {

@@ -26,11 +26,11 @@ async function create(ticketParam) {
     const ticket = new Ticket(ticketParam)
     const check = await Ticket.find().countDocuments()
     if (check === 0 || check === undefined) {
-        ticket.assigned.ticket_number = 1
+        ticket.ticket_number = 1
     } else {
-        const max = await Ticket.find().sort({ "assigned.ticket_number": -1 })
-        const count = max[0].assigned.ticket_number
-        ticket.assigned.ticket_number = count + 1
+        const max = await Ticket.find().sort({ "ticket_number": -1 })
+        const count = max[0].ticket_number
+        ticket.ticket_number = count + 1
     }
     await ticket.save()
 }
