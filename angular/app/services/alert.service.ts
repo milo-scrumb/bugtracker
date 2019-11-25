@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+
 @Injectable({ providedIn: 'root' })
 export class AlertService {
     private subject = new Subject<any>();
     private keepAfterRouteChange = false;
 
-    constructor(private router: Router) {
+    constructor(
+      private router: Router,
+      public snackBar: MatSnackBar
+    ) {
         // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
@@ -27,13 +32,14 @@ export class AlertService {
     }
 
     success(message: string, keepAfterRouteChange = false) {
-        this.keepAfterRouteChange = keepAfterRouteChange;
-        this.subject.next({ type: 'success', text: message });
+      this.snackBar.open(message, '', {duration: 2000});
     }
 
     error(message: string, keepAfterRouteChange = false) {
-        this.keepAfterRouteChange = keepAfterRouteChange;
-        this.subject.next({ type: 'error', text: message });
+      let config = new MatSnackBarConfig();
+      config.duration = 2000;
+      config.panelClass = ['warn-snackbar'];
+      this.snackBar.open( message, '', config );
     }
 
     clear() {
