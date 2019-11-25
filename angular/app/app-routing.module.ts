@@ -21,8 +21,9 @@ import { PromoteToTechComponent }              from './components/admin';
 
 const routes: Routes = [
     { path: '',      component: UserView, canActivate: [AuthGuard] },
-    { path: 'tech',  component: TechView, canActivate: [AuthGuard] },
-    { path: 'admin', component: AdminView, canActivate: [AuthGuard] },
+    { path: 'public', component: PublicView },
+    { path: 'tech',   component: TechView, canActivate: [AuthGuard] },
+    { path: 'admin',  component: AdminView, canActivate: [AuthGuard] },
     { path: 'login',           component: LoginComponent },
     { path: 'create-ticket',   component: CreateTicketComponent },
     { path: 'update-ticket',   component: UpdateTicketComponent},
