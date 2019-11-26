@@ -4,7 +4,7 @@ import { first }                      from 'rxjs/operators';
 
 import { TicketService, AuthenticationService } from '../../../services';
 
-import { ConfirmDialogComponent } from '../../shared';
+import { ConfirmDialogComponent } from '../../../shared';
 
 @Component({
   selector: 'app-list-ticket',

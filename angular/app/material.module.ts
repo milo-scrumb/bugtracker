@@ -8,6 +8,7 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
   MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
@@ -19,6 +20,7 @@ import {
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatSnackBarModule,
     MatToolbarModule
   ],
@@ -29,6 +31,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    MatSelectModule,
     MatToolbarModule
   ]
 })

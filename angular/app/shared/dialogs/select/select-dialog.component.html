@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Select {{subject}}</h2>
+
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let value of values" [value]="value">
+        {{value.username}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary"(click)="close()">Select</button>
+  <button class="mat-raised-button"(click)="close()">Cancel</button>
+</mat-dialog-actions>

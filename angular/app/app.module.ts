@@ -10,6 +10,8 @@ import { AppComponent }                        from './app.component';
 import { AppRoutingModule }                    from './app-routing.module';
 import { AngularMaterialModule }               from './material.module';
 import { AlertComponent }                      from './shared';
+import { ConfirmDialogComponent }              from './shared';
+import { SelectDialogComponent }               from './shared';
 import { ErrorInterceptor }                    from './shared';
 import { JwtInterceptor }                      from './shared';
 
@@ -28,7 +30,6 @@ import { TechView }                            from './components/tech';
 import { AdoptTicketComponent }                from './components/tech';
 import { InviteUserComponent }                 from './components/tech';
 import { ResolveTicketComponent }              from './components/tech';
-import { ConfirmDialogComponent }              from './components/shared';
 
 // used to create fake backend
 // import { fakeBackendProvider } from './shared';
@@ -53,6 +54,7 @@ import { ConfirmDialogComponent }              from './components/shared';
     PromoteToTechComponent,
     RegisterComponent,
     ResolveTicketComponent,
+    SelectDialogComponent,
     UpdateTicketComponent,
   ],
   imports: [
@@ -71,6 +73,6 @@ import { ConfirmDialogComponent }              from './components/shared';
     // fakeBackendProvider
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmDialogComponent]
+  entryComponents: [ConfirmDialogComponent, SelectDialogComponent]
 })
 export class AppModule { }

@@ -1,1 +1,35 @@
-<p>assign-ticket works!</p>
+<div class="view">
+  <h3>List of all Tickets:</h3>
+  <div *ngFor="let ticket of tickets">
+  	<mat-card class="ticket-card">
+        <mat-card-title-group class="card-header">
+          <mat-card-title>
+          	{{ticket.issue}}
+          </mat-card-title>
+          <mat-card-subtitle>
+            Opened by: {{ticket.author.username}} at {{ticket.created}}
+          </mat-card-subtitle>
+        </mat-card-title-group>
+  	  <mat-card-content>
+  	  	{{ticket.description}}
+  	  </mat-card-content>
+  	  <mat-card-footer class="card-footer">
+  	  	<div>Status: {{ticket.status}}</div>
+        <div *ngIf="ticket.tech">Assigned tech: {{ticket.tech.username}}</div>
+        <div *ngIf="!ticket.tech">Assigned tech: pending</div>
+  	  </mat-card-footer>
+        <mat-card-actions>
+          <button class="btn"
+            mat-raised-button color="accent"
+            routerLink="/update-ticket">
+            Edit
+          </button>
+          <button class="btn"
+            mat-raised-button color="accent"
+            (click)="openSelectDialog()">
+            Assign Ticket
+          </button>
+        </mat-card-actions>
+  	</mat-card>
+  </div>
+</div>
