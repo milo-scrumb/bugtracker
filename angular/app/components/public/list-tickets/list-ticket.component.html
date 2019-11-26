@@ -1,33 +1,40 @@
 <h3>List of all Tickets:</h3>
 <div *ngFor="let ticket of tickets">
-	<mat-card class="ticket-card">
-      <mat-card-title-group class="card-header">
-        <mat-card-title>
-        	{{ticket.issue}}
-        </mat-card-title>
-        <mat-card-subtitle>
-          Opened by: {{ticket.author.username}} at {{ticket.created}}
-        </mat-card-subtitle>
-      </mat-card-title-group>
-	  <mat-card-content>
-	  	{{ticket.description}}
-	  </mat-card-content>
-	  <mat-card-footer class="card-footer">
-	  	<div>Status: {{ticket.status}}</div>
-      <div *ngIf="ticket.tech">Assigned tech: {{ticket.tech.username}}</div>
-      <div *ngIf="!ticket.tech">Assigned tech: pending</div>
-	  </mat-card-footer>
-      <mat-card-actions>
-        <button class="btn"
-          mat-raised-button color="accent"
-          routerLink="/update-ticket">
-          Edit
-        </button>
-        <button class="btn"
-          mat-raised-button color="warn"
-          (click)="openConfirmDialog()">
-          Delete
-        </button>
-      </mat-card-actions>
-	</mat-card>
+	<div class="milo-card">
+      <div class="milo-card-header">
+        <div class="milo-card-title">
+          <h3>{{ticket.issue}}</h3>
+        </div>
+        <div class="milo-card-subtitle">
+          <small>Opened by: {{ticket.author.username}} at {{ticket.created}}</small>
+        </div>
+      </div>
+	  <div class="milo-card-content">
+      {{ticket.description}}
+    </div>
+	  <div class="milo-card-footer">
+      <div>
+        <div>Status: {{ticket.status}}</div>
+        <div *ngIf="ticket.tech">Assigned tech: {{ticket.tech.username}}</div>
+        <div *ngIf="!ticket.tech">Assigned tech: pending</div>
+      </div>
+      <span class="fill-space"></span>
+      <div class="milo-card-footer">
+        <div class="btn-div">
+          <button class="btn"
+            mat-raised-button color="primary"
+            routerLink="/update-ticket">
+            Edit
+          </button>
+        </div>
+        <div class="btn-div">
+          <button class="btn"
+            mat-raised-button color="warn"
+            (click)="openConfirmDialog()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+	</div>
 </div>

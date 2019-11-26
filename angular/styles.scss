@@ -68,29 +68,63 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .btn{
-  margin: .5rem;
   padding: .5rem;
-  min-width: 5rem;
+  width: 100%;
   text-align: center;
 }
 
-.card-footer{
+.btn-div{
+  border-color: white;
+  border-radius: .25rem;
+  border-style: solid;
+  border-width: .2rem;
+  margin: .5rem;
+  min-width: 5rem;
+}
+
+.milo-card{
+  border-color: $secondary-color;
+  border-radius: .5rem;
+  border-style: solid;
+  border-width: .2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: .75rem;
+  padding: 0rem;
+}
+
+.milo-card-content{
+  margin: 1rem;
+}
+
+.milo-card-footer{
   background-color: $secondary-color;
   color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: .5rem;
 }
 
-.card-header{
+.milo-card-header{
   background-color: $primary-color;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
   color: white;
-  padding: .5rem;
 }
 
-.ticket-card{
-  border-style: solid;
-  border-color: $secondary-color;
-  border-width: .2rem;
-  margin-bottom: .2rem;
-  padding: .5rem;
+.milo-card-subtitle{
+  margin-top: -.5rem;
+  padding-left: 1rem;
+  padding-top: -.5rem;
+}
+
+.milo-card-title{
+  padding: -.5rem;
+  text-align: center;
 }
 
 .warn-snackbar{
