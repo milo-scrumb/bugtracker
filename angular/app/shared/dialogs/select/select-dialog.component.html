@@ -1,8 +1,9 @@
 <h2 mat-dialog-title>Select {{subject}}</h2>
 
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
 <mat-dialog-content>
   <mat-form-field>
-    <mat-select>
+    <mat-select formControlName="value" [ngClass]="{ 'is-invalid': submitted && f.value.errors }">
       <mat-option *ngFor="let value of values" [value]="value">
         {{value.username}}
       </mat-option>
@@ -11,6 +12,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button class="mat-raised-button mat-primary"(click)="close()">Select</button>
-  <button class="mat-raised-button"(click)="close()">Cancel</button>
+  <button class="mat-raised-button mat-primary" (click)="onSubmit()">Select</button>
+  <button class="mat-raised-button" (click)="close()">Cancel</button>
 </mat-dialog-actions>
+</form>

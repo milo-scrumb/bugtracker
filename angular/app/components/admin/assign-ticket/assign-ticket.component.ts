@@ -4,9 +4,9 @@ import { first }                      from 'rxjs/operators';
 
 import { AuthenticationService,
          UserService,
-         TicketService  }         from '../../../services';
+         TicketService  }             from '../../../services';
 
-import { SelectDialogComponent } from '../../../shared';
+import { SelectDialogComponent }      from '../../../shared';
 
 @Component({
   selector: 'app-assign-ticket',
@@ -41,7 +41,7 @@ export class AssignTicketComponent implements OnInit {
     const dialogRef = this.dialog.open(SelectDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", JSON.stringify(data))
+        data => console.log("Dialog output-> New tech is:" + data.value.username)
     );
   }
   ngOnInit() {

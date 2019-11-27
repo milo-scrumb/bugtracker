@@ -40,7 +40,11 @@ $bugtracker-theme: mat-light-theme($bugtracker-primary, $bugtracker-accent, $bug
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-color: #d0d0d0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .form-container {
   margin: 2rem;
@@ -83,6 +87,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .milo-card{
+  background-color: #e0e0e0;
   border-color: $secondary-color;
   border-radius: .5rem;
   border-style: solid;

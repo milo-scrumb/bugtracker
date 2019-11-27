@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject }        from '@angular/core';
-import { FormBuilder,FormGroup} from "@angular/forms";
+import { FormBuilder,FormGroup, Validators} from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA}     from '@angular/material';
 
 @Component({
@@ -12,6 +12,7 @@ export class SelectDialogComponent implements OnInit {
 
   form: FormGroup;
   subject: string;
+  submitted = false;
   values: [];
   value: any;
 
@@ -22,11 +23,6 @@ export class SelectDialogComponent implements OnInit {
   ) {
     this.subject = data.subject;
     this.values = data.values;
-    this.value = ''
-
-    this.form = fb.group({
-      // value: [value],
-    });
   }
 
   save() {
@@ -37,9 +33,27 @@ export class SelectDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.form = this.fb.group({
+      value: ['', Validators.required]
+    });
   }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.form.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log('submit!!!')
+    // stop here if form is invalid
+    if (this.form.invalid) {
+        return;
+    }
+    // display form values on success
+    this.dialogRef.close(this.form.value);
+  }
 }
+
 
 // export class CourseDialogComponent implements OnInit {
 
