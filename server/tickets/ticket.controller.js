@@ -6,6 +6,7 @@ const ticketService = require('./ticket.service')
 router.get('/', getAll)
 router.post('/create', postTicket)
 router.get('/:id', getTicket)
+router.post('/editTech', editTech)
 router.put('/:id', editTicket)
 router.delete('/:id', _deleteTicket)
 
@@ -19,7 +20,6 @@ function getAll(req, res, next) {
 }
 
 function postTicket(req, res, next) {
-    console.log('into controller')
     ticketService.create(req.body)
         .then(() => res.json({}))
         .catch(err => next(err))
@@ -28,6 +28,13 @@ function postTicket(req, res, next) {
 function getTicket(req, res, next) {
     ticketService.getById(req.params.id)
         .then(ticket => ticket ? res.json(ticket) : res.sendStatus(404))
+        .catch(err => next(err))
+}
+
+function editTech(id, tech) {
+    console.log('into controller')
+    ticketService.updateTech(id, tech)
+        .then(() => res.json({}))
         .catch(err => next(err))
 }
 

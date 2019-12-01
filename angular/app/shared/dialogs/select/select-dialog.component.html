@@ -2,10 +2,15 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 <mat-dialog-content>
-  <mat-form-field>
-    <mat-select formControlName="value" [ngClass]="{ 'is-invalid': submitted && f.value.errors }">
-      <mat-option *ngFor="let value of values" [value]="value">
-        {{value.username}}
+  <mat-form-field floatLabel="always">
+  	<mat-label>{{label}}</mat-label>
+  	{{selectedOption}}
+    <mat-select formControlName="selectedOption"
+      [value]="defaultOption"
+      [ngClass]="{ 'is-invalid': submitted && f.selectedOption.errors }">
+      <mat-option *ngFor="let value of values"
+        [value]="value">
+        {{value}}
       </mat-option>
     </mat-select>
   </mat-form-field>

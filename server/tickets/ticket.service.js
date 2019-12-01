@@ -7,6 +7,7 @@ module.exports = {
     getById,
     create,
     update,
+    updateTech,
     hapus
 }
 
@@ -42,6 +43,23 @@ async function update(id, ticketBody) {
     // check status "Open or Closed"
     if(ticketBody.assigned.status === 'Closed'){
         ticket.resolution.closed = Date.now()
+    }
+    ticket.save()
+}
+
+// update tech assigned to ticket
+async function updateTech(id, tech) {
+    const ticket = await Ticket.findById(id)
+    console.log('into uppdateTech')
+    // TODO save tech id in this space as well
+    //  tricky to pass through the select dialog
+    //  unless select dialog values array is changed to {id, label} format
+    ticket.tech = {
+        "id" : {
+            "type" : ObjectId(id),
+            "ref" : "Tech"
+        },
+        "username" : tech
     }
     ticket.save()
 }
