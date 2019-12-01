@@ -11,7 +11,11 @@ import { MatDialogRef, MAT_DIALOG_DATA}     from '@angular/material';
 export class SelectDialogComponent implements OnInit {
 
   form: FormGroup;
+  defaultOption: any;
+  id: string;
+  label: string;
   subject: string;
+  selectedOption: any;
   submitted = false;
   values: [];
   value: any;
@@ -21,6 +25,9 @@ export class SelectDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<SelectDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data
   ) {
+    this.defaultOption = data.default;
+    this.id = data.id;
+    this.label = data.label;
     this.subject = data.subject;
     this.values = data.values;
   }
@@ -33,10 +40,10 @@ export class SelectDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.form = this.fb.group({
-      value: ['', Validators.required]
+      selectedOption: ['', Validators.required]
     });
+    this.selectedOption = this.defaultOption;
   }
 
   // convenience getter for easy access to form fields
@@ -44,42 +51,16 @@ export class SelectDialogComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log('submit!!!')
     // stop here if form is invalid
     if (this.form.invalid) {
         return;
     }
     // display form values on success
-    this.dialogRef.close(this.form.value);
+    this.dialogRef.close(
+      {
+        value: this.form.value.selectedOption,
+        id: this.id
+      }
+    );
   }
 }
-
-
-// export class CourseDialogComponent implements OnInit {
-
-//     form: FormGroup;
-//     description:string;
-
-//     constructor(
-//         private fb: FormBuilder,
-//         private dialogRef: MatDialogRef<CourseDialogComponent>,
-//         @Inject(MAT_DIALOG_DATA) data) {
-
-//         this.description = data.description;
-//     }
-
-//     ngOnInit() {
-//         this.form = fb.group({
-//             description: [description, []],
-//             ...
-//         });
-//     }
-
-//     save() {
-//         this.dialogRef.close(this.form.value);
-//     }
-
-//     close() {
-//         this.dialogRef.close();
-//     }
-// }

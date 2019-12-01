@@ -29,11 +29,15 @@ export class AssignTicketComponent implements OnInit {
       this.currentUser = this.authenticationService.currentUserValue;
   }
 
-  openSelectDialog() {
+  openSelectDialog(ticket) {
+    let default_tech = ticket.tech ? ticket.tech.username : 'Tech not yet assigned';
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
+      default: default_tech,
+      id: ticket._id,
+      label: 'Assigned Tech',
       subject: 'Tech',
-      values: this.loadAllTechs()
+      values: this.loadAllTechs().map(i => { return i.username})
     };
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -41,7 +45,12 @@ export class AssignTicketComponent implements OnInit {
     const dialogRef = this.dialog.open(SelectDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output-> New tech is:" + data.value.username)
+        data => {
+          if (data) {
+            console.log("Dialog output is->" + JSON.stringify(data));
+            this.ticketService.updateTech(data.id, data.value);
+          }
+        }
     );
   }
   ngOnInit() {

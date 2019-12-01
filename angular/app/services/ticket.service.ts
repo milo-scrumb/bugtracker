@@ -16,6 +16,11 @@ export class TicketService {
         return this.http.post(`${config.apiUrl}/tickets/create`, {author, issue, description});
     }
 
+    updateTech(id, tech) {
+        console.log('into ticket service, data is id:' + id + ' tech: ' + tech)
+        return this.http.post(`${config.apiUrl}/tickets/editTech`, {id, tech});
+    }
+
     delete(id) {
         return this.http.delete(`${config.apiUrl}/tickets/${id}`);
     }
